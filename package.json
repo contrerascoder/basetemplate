@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "git add . && eslint ."
+    "test": "eslint . && git add .",
+    "dev": "nodemon -r @babel/register -r @babel/polyfill src/index.js",
+    "start": "node ."
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm test"
     }
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,9 +30,15 @@
   },
   "homepage": "https://gitlab.com/templates22/basetemplate#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "husky": "^4.3.0"
   },
   "devDependencies": {
-    "eslint": "^7.11.0"
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "eslint": "^7.11.0",
+    "nodemon": "^2.0.5"
   }
 }
